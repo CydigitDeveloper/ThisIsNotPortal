@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float gridSize = 1f;
     [SerializeField] private LayerMask obstacleLayer = ~0;
+    [SerializeField] private LayerMask spikeLayer = 0;
 
     [Header("States")]
     [SerializeField] private bool isFrozen = false;
@@ -229,6 +230,12 @@ public class PlayerController : MonoBehaviour
             Vector3 p1 = centerWS + Vector3.up * height;
             Vector3 p2 = centerWS - Vector3.up * height;
 
+            if (Physics.CapsuleCast(p1, p2, radius, direction.normalized, out RaycastHit spikeHit, distance, spikeLayer, QueryTriggerInteraction.Ignore))
+            {
+                GameManager.Instance.LevelFailed();
+                return false;
+            }
+
             bool hit = Physics.CapsuleCast(p1, p2, radius, direction.normalized, out _, distance, obstacleLayer, QueryTriggerInteraction.Ignore);
             return !hit;
         }
@@ -236,11 +243,24 @@ public class PlayerController : MonoBehaviour
         {
             float skin = 0.05f;
             Vector3 origin = start + direction.normalized * skin;
+
+            if (Physics.Raycast(origin, direction.normalized, out RaycastHit spikeHit, distance - skin, spikeLayer, QueryTriggerInteraction.Ignore))
+            {
+                GameManager.Instance.LevelFailed();
+                return false;
+            }
+
             bool hit = Physics.Raycast(origin, direction.normalized, distance - skin, obstacleLayer, QueryTriggerInteraction.Ignore);
             return !hit;
         }
         else
         {
+            if (Physics.Raycast(start, direction.normalized, out RaycastHit spikeHit, distance, spikeLayer, QueryTriggerInteraction.Ignore))
+            {
+                GameManager.Instance.LevelFailed();
+                return false;
+            }
+
             bool hit = Physics.Raycast(start, direction.normalized, distance, obstacleLayer, QueryTriggerInteraction.Ignore);
             return !hit;
         }
