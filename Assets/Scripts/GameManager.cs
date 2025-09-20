@@ -6,10 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public readonly HashSet<PlayerController> playersInside = new HashSet<PlayerController>();
     public List<PlayerController> allPlayers;
     public GameObject levelFailedPanel;
+    public GameObject levelSucceededPanel;
     public TextMeshProUGUI moveCountText;
     public int moveCount = 10;
+    public bool pauseGame = false;
 
     private Vector3 moveDirectionThisFrame = Vector3.zero;
 
@@ -29,46 +32,51 @@ public class GameManager : MonoBehaviour
     {
         if (IsAnyPlayerMoving()) return;
 
+        if (pauseGame)
+        {
+            return;
+        }
+
+        if (moveCount <= 0)
+        {
+            LevelFailed();
+            pauseGame = true;
+            return;
+        }
+
         moveDirectionThisFrame = Vector3.zero;
 
-        if (moveCount > 0)
+        if (playerInputHandler.Forward)
         {
-            if (playerInputHandler.Forward)
-            {
-                moveDirectionThisFrame = Vector3.forward;
-                playerInputHandler.Forward = false;
+            moveDirectionThisFrame = Vector3.forward;
+            playerInputHandler.Forward = false;
 
-                moveCount--;
-                moveCountText.text = moveCount.ToString();
-            }
-            else if (playerInputHandler.Backward)
-            {
-                moveDirectionThisFrame = Vector3.back;
-                playerInputHandler.Backward = false;
-
-                moveCount--;
-                moveCountText.text = moveCount.ToString();
-            }
-            else if (playerInputHandler.Left)
-            {
-                moveDirectionThisFrame = Vector3.left;
-                playerInputHandler.Left = false;
-
-                moveCount--;
-                moveCountText.text = moveCount.ToString();
-            }
-            else if (playerInputHandler.Right)
-            {
-                moveDirectionThisFrame = Vector3.right;
-                playerInputHandler.Right = false;
-
-                moveCount--;
-                moveCountText.text = moveCount.ToString();
-            }
+            moveCount--;
+            moveCountText.text = moveCount.ToString();
         }
-        else
+        else if (playerInputHandler.Backward)
         {
-            levelFailedPanel.SetActive(true);
+            moveDirectionThisFrame = Vector3.back;
+            playerInputHandler.Backward = false;
+
+            moveCount--;
+            moveCountText.text = moveCount.ToString();
+        }
+        else if (playerInputHandler.Left)
+        {
+            moveDirectionThisFrame = Vector3.left;
+            playerInputHandler.Left = false;
+
+            moveCount--;
+            moveCountText.text = moveCount.ToString();
+        }
+        else if (playerInputHandler.Right)
+        {
+            moveDirectionThisFrame = Vector3.right;
+            playerInputHandler.Right = false;
+
+            moveCount--;
+            moveCountText.text = moveCount.ToString();
         }
 
         if (moveDirectionThisFrame != Vector3.zero)
@@ -102,5 +110,34 @@ public class GameManager : MonoBehaviour
             if (player != null && player.GetIsMoving()) return true;
         }
         return false;
+    }
+
+    public void LevelFailed()
+    {
+        pauseGame = true;
+
+        levelFailedPanel.SetActive(true);
+    }
+
+    public void LevelSucceeded()
+    {
+        pauseGame = true;
+
+        levelSucceededPanel.SetActive(true);
+    }
+
+    public void CheckWinCondition()
+    {
+        var allPlayers = this.allPlayers;
+
+        if (allPlayers.Count == 0) return;
+
+        foreach (var p in allPlayers)
+        {
+            if (!playersInside.Contains(p))
+                return;
+        }
+
+        LevelSucceeded();
     }
 }
