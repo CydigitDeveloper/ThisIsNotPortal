@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public readonly HashSet<PlayerController> playersInside = new HashSet<PlayerController>();
+
+    public readonly HashSet<PlayerController> frozenPlayers = new HashSet<PlayerController>();
+
     public List<PlayerController> allPlayers;
     public GameObject levelFailedPanel;
     public GameObject levelSucceededPanel;
@@ -85,10 +88,19 @@ public class GameManager : MonoBehaviour
             {
                 var player = allPlayers[i];
                 if (player == null) continue;
+                if (frozenPlayers.Contains(player)) continue;
 
                 player.ReceiveMovementCommand(moveDirectionThisFrame);
             }
         }
+    }
+
+    public void FreezeAndLockPlayer(PlayerController player)
+    {
+        if (player == null) return;
+        if (frozenPlayers.Contains(player)) return;
+
+        frozenPlayers.Add(player);
     }
 
     public void FreezeSelectedPlayer(int index)

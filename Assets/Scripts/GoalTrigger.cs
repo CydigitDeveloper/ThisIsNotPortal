@@ -11,6 +11,9 @@ public class GoalTrigger : MonoBehaviour
         if (player != null)
         {
             GameManager.Instance.playersInside.Add(player);
+
+            GameManager.Instance.FreezeAndLockPlayer(player);
+
             GameManager.Instance.CheckWinCondition();
         }
     }
@@ -21,6 +24,8 @@ public class GoalTrigger : MonoBehaviour
 
         if (player != null)
         {
+            if (GameManager.Instance.frozenPlayers.Contains(player)) return;
+
             GameManager.Instance.playersInside.Remove(player);
         }
     }
