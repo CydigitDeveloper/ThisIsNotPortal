@@ -426,6 +426,7 @@ Transform:
   - {fileID: 1669414536}
   - {fileID: 1863595850}
   - {fileID: 878354392}
+  - {fileID: 1186312110}
   - {fileID: 1166860622}
   - {fileID: 204473634}
   - {fileID: 432561087}
@@ -613,7 +614,7 @@ Transform:
   m_GameObject: {fileID: 270190182}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 13.5, z: -10}
+  m_LocalPosition: {x: 5, y: 13.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1999,6 +2000,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4122257214898464, guid: 6f6fe0023a0c31b48a876cdbf1a045a6, type: 3}
   m_PrefabInstance: {fileID: 796696691}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &801429518
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 192630297}
+    m_Modifications:
+    - target: {fileID: 1503304560085038, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_Name
+      value: wall01 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503304560085038, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64413422749230800, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
 --- !u!1001 &821510276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2943,7 +3021,7 @@ Transform:
   m_GameObject: {fileID: 1134858901}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 13.5, z: -10}
+  m_LocalPosition: {x: -1, y: 13.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3192,6 +3270,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167643700}
   m_CullTransparentMesh: 1
+--- !u!4 &1186312110 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4220575386733614, guid: 370124386399bfa4684804fbadebf0dc, type: 3}
+  m_PrefabInstance: {fileID: 801429518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1206041504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4016,6 +4099,7 @@ MonoBehaviour:
   levelSucceededPanel: {fileID: 2132711066}
   moveCountText: {fileID: 2025709768}
   moveCount: 10
+  pauseGame: 0
 --- !u!114 &1538722660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5673,7 +5757,7 @@ Transform:
   m_GameObject: {fileID: 7161669640215744229}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.04, y: 13, z: -12}
+  m_LocalPosition: {x: 2, y: 13, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5689,7 +5773,7 @@ Transform:
   m_GameObject: {fileID: 7161669639875929031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.96, y: 13, z: -12}
+  m_LocalPosition: {x: -4, y: 13, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6029,6 +6113,9 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  spikeLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isFrozen: 0
   isReversed: 0
 --- !u!114 &9113696554585660011
@@ -6048,6 +6135,9 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  spikeLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isFrozen: 0
   isReversed: 0
 --- !u!1660057539 &9223372036854775807
